@@ -1,0 +1,10 @@
+{% if session['role']== "patient" %}
+    {% include 'phead.html' %}
+{% endif %}
+<div>
+    {% for appointment in appointments %}
+         <div class="card  w-30 mt-50 ml-50 p-20">
+             Reason:{{appointment['reason']}}
+         </div>
+    {% endfor %}
+</div>

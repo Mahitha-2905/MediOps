@@ -1,0 +1,43 @@
+{% include 'phead.html' %}
+<html lang="en">
+<style>
+        .doctor-details {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        .doctor-details h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+        .doctor-details p {
+            margin: 10px 0;
+            color: #555555;
+        }
+        .doctor-details p span {
+            font-weight: bold;
+        }
+    </style>
+<div class="row">
+    {% for doctor in doctors %}
+
+        <div class="doctor-details card p-20 mt-100 w-20 ml-100">
+            <h2>Doctor Details</h2>
+
+            <p><span>Name:</span> {{doctor['name']}}</p>
+            <p><span>Email:</span> {{doctor['email']}} </p>
+            <p><span>Phone Number:</span> {{doctor['phone']}} </p>
+            <p><span>Designation:</span> {{doctor['designation']}} </p>
+            <p><span>Specialization:</span> {{doctor['specialization']}} </p>
+            <form action="doctor_slots">
+                <input type="hidden" name="doctor_id" value="{{doctor['_id']}}">
+                <button type="submit" class="btn h5">Book Slot</button>
+            </form>
+        </div>
+    {% endfor %}
+</div>
+
+

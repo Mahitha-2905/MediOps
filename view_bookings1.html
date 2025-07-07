@@ -1,0 +1,16 @@
+{% include 'dhead.html' %}
+{% for appointment in appointments %}
+        <div class="card row p-20 mt-50 w-90 ml-50 space-around">
+            {% set doctor = get_doctor_by_doctor_id(appointment['doctor_id']) %}
+            {% set patient = get_patient_by_patient_id(appointment['patient_id']) %}
+            {% set slot = get_slot_by_slot_id(appointment['slot_id']) %}
+            <div>Date:{{appointment['appointment_date']}}</div>
+            <div>
+               Patient Name:- {{patient['name']}}
+            </div>
+            <div>
+                Slot From time :-{{slot['slot_from_time']}}
+            </div>
+            <div><a href="view_bookings">Slot No :-{{slot['slot_number']}}</a></div>
+        </div>
+{% endfor %}

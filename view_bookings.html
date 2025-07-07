@@ -1,0 +1,109 @@
+{% if session['role']== "patient" %}
+    {% include 'phead.html' %}
+{% endif %}
+{% if session['role']== "doctor" %}
+    {% include 'dhead.html' %}
+{% endif %}
+{% if session['role']== "admin" %}
+    {% include 'ahead.html' %}
+{% endif %}
+<div class="text-center"><h1>Booking Details</h1></div>
+<!--{% if session['role'] == 'doctor' %}-->
+<!--<div class="w-30 ml-850">-->
+<!--    <form action="view_bookings">-->
+<!--        <div class="col">-->
+<!--           <input type="date" class="a-date form-input" name="appointment_date" value="{{appointment_date}}" onchange="this.form.submit()">-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+
+<!--{% endif %}-->
+    {% for appointment in appointments %}
+        <div class="card row p-20 mt-50 w-90 ml-50 space-around">
+        {% set doctor = get_doctor_by_doctor_id(appointment['doctor_id']) %}
+        {% set patient = get_patient_by_patient_id(appointment['patient_id']) %}
+        {% set slot = get_slot_by_slot_id(appointment['slot_id']) %}
+        {% set payment=get_payment_by_appointment_id (appointment['_id'])%}
+        <div class="card p-20">
+            <div><h2>Doctor Details</h2></div>
+            <div><h4>Dr.{{doctor['name']}}</h4></div>
+            <div>Specialty:-{{doctor['specialization']}}</div>
+            <div>PH:NO:-{{doctor['phone']}}</div>
+            <div>Designation:-{{doctor['designation']}}</div>
+        </div>
+        <div class="card p-20">
+            <div><h2>Patient Details</h2></div>
+            <div><h4>Name:-{{patient['name']}}</h4></div>
+            <div>Email:-{{patient['email']}}</div>
+            <div>PH:NO:-{{patient['phone']}}</div>
+            <div>Zipcode:-{{patient['zipcode']}}</div>
+            <div>City:-{{patient['city']}}</div>
+        </div>
+        <div class="card p-20">
+            <div><h2>Appointment Details</h2></div>
+            <div class="row">Slot No:-<h4>{{slot['slot_number']}}</h4></div>
+            <div>From Time:-{{slot['slot_from_time']}}</div>
+            <div>To Time:-{{slot['slot_to_time']}}</div>
+            <div>Appointment Date:-{{appointment['appointment_date']}}</div>
+            <div>Status:-{{appointment['status']}}</div>
+            <div>Description:-{{appointment['description']}}</div>
+            {% if session['role'] == 'doctor' %}
+                {% if appointment['status']=="Requested"  %}
+                    <div class="row space-around">
+                        <div>
+                           <form action="prescription">
+                                 <input type="hidden" name="appointment_id" value="{{appointment['_id']}}">
+                                 <button type="submit"  class="btn h5">Write Prescription</button>
+                            </form>
+                        </div>
+                        <div class="ml-20">
+                            <form action="reject">
+                                 <input type="hidden" name="appointment_id" value="{{appointment['_id']}}">
+                                 <button type="submit"  class="btn-red h5">Reject</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif  %}
+                {% if appointment['status']=="Payment Pending"  %}
+                    <div>
+                       <form action="approve">
+                             <input type="hidden" name="appointment_id" value="{{appointment['_id']}}">
+                             <button type="submit"  class="btn h5">Approve</button>
+                        </form>
+                    </div>
+                     <div>
+                       <form action="reject">
+                             <input type="hidden" name="appointment_id" value="{{appointment['_id']}}">
+                             <button type="submit"  class="btn-red h5">Reject</button>
+                        </form>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% if session['role'] == "patient" %}
+                {% if appointment['status']=="Request Accepted" %}
+                        <div class=""><a  class="btn text-center" href="payment?appointment_id={{appointment['_id']}}">PAY NOW</a></div>
+                {% endif %}
+            {% endif %}
+            {% if appointment['status']=="Prescribed" %}
+                    <div class=""><a  class="btn text-center" href="view_prescription?appointment_id={{appointment['_id']}}">View Prescription</a></div>
+            {% endif %}
+            {% if appointment['status']=="Request Rejected" %}
+                    <div class=""><a  class="btn text-center" href="view_reason?appointment_id={{appointment['_id']}}">View Reason</a></div>
+            {% endif %}
+        </div>
+        <div class="card p-20">
+<!--            {% if appointment['status']=="Requested" %}-->
+                <div><h2>Payment Details</h2></div>
+                <div>Card Holder Name:-{{payment['name_on_card']}}</div>
+                <div>Card Type:-{{payment['card_type']}}</div>
+                <div>Card Number:-{{payment['card_number']}}</div>
+                <div>CVV:-{{payment['cvv']}}</div>
+                <div>Expiry Date:-{{payment['expiry_date']}}</div>
+                <div>Amount:- ${{payment['amount']}}</div>
+                <div>Status:-{{payment['status']}}</div>
+<!--            {% endif %}-->
+        </div>
+            </div>
+    {% endfor %}
+
+

@@ -1,0 +1,23 @@
+{% include 'dhead.html' %}
+<div class="text-center"><h1>Doctor Available Slots</h1></div>
+<div class="w-30 ml-850">
+    <form action="view_doctor_slots">
+        <div class="col">
+           <input type="date" class="a-date form-input" name="available_date" value="{{available_date}}" onchange="this.form.submit()">
+        </div>
+    </form>
+</div>
+
+
+<div class="row p-20">
+    {% if session['role']== "doctor" %}
+        {% for time_slot in time_slots %}
+            <div class="card  w-20 ml-50 mt-20 p-10">
+                <div class="text-center h6">Slot.No : {{time_slot['slot_number']}}</div>
+                <div class="">Day : {{time_slot['day']}}</div>
+                <div class="">From-Time: {{time_slot['slot_from_time']}}</div>
+                <div class="">To-TIme : {{time_slot['slot_to_time']}}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
