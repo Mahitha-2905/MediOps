@@ -1,0 +1,97 @@
+{% include "ahead.html" %}
+<div class="p-20">
+    <div class="card p-20">
+        <div class="text-center">
+            <h2>Add New Doctor</h2>
+        </div>
+        <div class="card mt-10 p-20">
+            <form action="add_view_doctor_action" method="post">
+                <div class="">
+                    <div class="row space-around">
+                                <div class="w-15">
+                                        <div  class="">First Name</div>
+                                        <input type="text"  name="first_name" class="form-input p-5px" placeholder="Enter First Name" required>
+                                  </div>
+                                <div class="w-15">
+                                        <div  class="">Last Name</div>
+                                        <input type="text"   name="last_name" class="form-input p-5px" placeholder="Enter Last Name" required>
+                                  </div>
+                                <div class="w-15">
+                                    <label for="name">User Name:</label>
+                                    <input type="text" class="form-input" id="name" name="name" placeholder="Enter doctor's name" required>
+                                </div>
+                                <div class="w-15">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-input" id="email" name="email" placeholder="Enter email" required>
+                                </div>
+                                <div class="w-15">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="tel" class="form-input" id="phone" name="phone" placeholder="Enter phone number" required>
+                                </div>
+                                <div class="w-15">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-input" id="password" name="password" placeholder="Enter password" required>
+                                </div>
+
+                    </div>
+                    <div class="row space-around mt-20">
+                        <div class="w-15">
+                                        <div  class="label-1">Confirm Password</div>
+                                        <input type="password"  name="confirm_password" class="form-input p-5px" placeholder="Enter Confirm Password" required>
+                                 </div>
+                         <div class="w-15">
+                            <label for="designation">Designation:</label>
+                            <input type="text" class="form-input" id="designation" name="designation" placeholder="Enter designation" required>
+                        </div>
+                         <div class="w-15">
+                             <label for="consultationFee">Consultation Fee:</label>
+                             <input type="text" class="form-input" id="consultationFee" name="consultationFee" placeholder="Enter Fee" required>
+                         </div>
+                        <div class="w-15">
+                            <label for="specialization">Specialization:</label>
+                            <input type="text" id="specialization" class="form-input" name="specialization" placeholder="Enter Specialization" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Doctor</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="card mt-20 p-20">
+            <div class="text-center"><h2>Doctors List</h2></div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">First Name</th>
+                        <th class="text-center">Last Name</th>
+                        <th class="text-center">User Name</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Phone Number</th>
+                        <th class="text-center">Designation</th>
+                        <th class="text-center">Consultation Fee</th>
+                        <th class="text-center">Specialization</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in doctors %}
+                        <tr>
+                            <td class="text-center">{{doctor['first_name']}}</td>
+                            <td class="text-center">{{doctor['last_name']}}</td>
+                            <td class="text-center">{{doctor['name']}}</td>
+                            <td class="text-center">{{doctor['email']}}</td>
+                            <td class="text-center">{{doctor['phone']}}</td>
+                            <td class="text-center">{{doctor['designation']}}</td>
+                            <td class="text-center">{{doctor['consultationFee']}}</td>
+                            <td class="text-center">{{doctor['specialization']}}</td>
+                            <td>
+                                <a href="edit?doctor_id={{doctor['_id']}}" class="btn text-center">Edit</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
