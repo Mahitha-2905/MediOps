@@ -1,0 +1,164 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.bg-main {
+    background-repeat: no-repeat;
+    background-image:url("https://www.aucmed.edu/sites/g/files/krcnkv361/files/styles/atge_3_2_crop_md/public/2022-03/Pathology.jpg?h=07294c09&itok=H5qjddhH");
+    background-size: 100%;
+    height: 91.5vh;
+}
+
+.bg-main-1 {
+    background-repeat: no-repeat;
+    background-image:url("https://img.freepik.com/premium-photo/still-life-laboratory-samples_23-2151108812.jpg");
+    background-size: 100%;
+    height: 91vh;
+}
+
+.bg-main-2 {
+    background-repeat: no-repeat;
+    background-image:url("https://www.shutterstock.com/image-illustration/luminous-curve-purple-dark-space-260nw-1603526848.jpg");
+    background-size: 100%;
+    height: 91vh;
+}
+.bg-main-3 {
+    background-repeat: no-repeat;
+    background-image:url("https://www.bridgeheadsoftware.com/wp-content/uploads/2022/04/Homepage-Hero-Background.jpg");
+    background-size: 100%;
+    height: 91vh;
+}
+
+.pa {
+    position: absolute;
+    top:0;
+    left:0;
+}
+.pr {
+    position: relative;
+}
+
+
+.login-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 93.7vh;
+}
+
+.login-bg-color {
+    position: absolute;
+    width: 100%;
+    height: 93.7vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bg-color {
+    width: 100%;
+    height: 93.7vh;
+    background-color: rgba(0, 213, 255, 0.097);
+    color: black;
+}
+
+.bg-color-1 {
+    width: 100%;
+    background-color: rgba(0, 213, 255, 0.097);
+    color: black;
+}
+
+
+.bg-img {
+    position: absolute;
+    width: 100%;
+    height: 35.7vh;
+    margin-left: 12.5%;
+}
+
+.text-1 {
+    color: white;
+}
+
+table, th, td{
+    border: 1px solid   ;
+}
+.table {
+    box-sizing: border-box;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.bg-green {
+    background-color: rgb(0, 144, 0);
+    margin-top: 10px;
+    color: white;
+    width: 30%;
+    text-align: center;
+    border-radius: 14px;
+ }
+
+
+ .sub-title {
+    color: rgba(61, 4, 78, 0.71);
+ }
+
+
+ .img {
+    width: 100%;
+ }
+
+ .m-auto {
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .btn-card {
+    background-color: transparent;
+    border: none !important;
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+ }
+ .card-transparent-img {
+     top: 50%;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background-color: rgba(0, 0, 0, 0.568);
+     color: white;
+ }
+ .z-high{
+    z-index: 100;
+ }
+ .m-pointer {
+    cursor: pointer;
+ }
+ .overflow{
+    height: 50px;
+    overflow: auto;
+}
+
+.bg-WOOD {
+    background-color: rgba(0, 213, 255, 0.097);
+    background-size: 100%;
+    height: 92.5vh;
+}
+
+.bg-request {
+    background-color: rgb(73, 110, 137);
+    background-size: 100%;
+    color: white;
+}
+
+th,td{
+    padding: 5px;
+}
+
+.ram{
+background-color:red;
+}
+.white{
+    color: white;
+}
