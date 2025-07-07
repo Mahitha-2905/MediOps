@@ -1,0 +1,37 @@
+{% include 'links.html' %}
+<div class="">
+    <div class="row">
+        <div class="col-md-2 w-15 sidebar">
+            <h2>Home Panel</h2>
+            <a class="mt-20 h5" href="/">Home</a>
+            <a class="mt-20 h5" href="/admin_login">Admin</a>
+            <a class="mt-20 h5" href="/doctor_login">Doctor</a>
+            <a class="mt-20 h5" href="/patient_login">Patient</a>
+        </div>
+        <div class="w-85">
+            <div class="header">
+                <h1>Welcome to Health Care Management System</h1>
+            </div>
+            <div class="card ml-500 mt-100 w-30 p-10">
+                <title>Patient Login</title>
+                <div>
+                    <div class="login-container">
+                        <h2 class="text-center">Patient Login</h2>
+                        <form action="/patient_login_action" method="POST">
+                            <div>
+                                <div>Email / User name</div>
+                                <div><input class="form-input p-10px" type="text" name="user_login" placeholder="Enter Your Email" required></div>
+                            </div>
+                            <div>
+                                <div>Password</div>
+                                <input type="password" class="form-input p-10px" name="password" placeholder="Password" required>
+                            </div>
+                            <button class="btn h6" type="submit">Login</button>
+                            <div class="user-bottom"><label>Don't Have an account ? </label><a class="under-line link-2" href="/patient_register">Register Now</a></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

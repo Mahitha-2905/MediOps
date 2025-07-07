@@ -1,0 +1,45 @@
+{% include 'phead.html' %}
+<div class="card w-30 mt-100 p-20 ml-500">
+        <div class="text-center"><h2>Payment page</h2></div>
+        <div class="title">Pay: ${{doctor['consultationFee']}} </div>
+            <div class="">
+                <form action="payment_action" method="post">
+                    <input type="hidden" name="amount" value="{{doctor['consultationFee']}}">
+                    <input type="hidden" name="appointment_id" value="{{appointment_id}}">
+                    <input type="hidden" name="appointment_id" value="{{patient_id}}">
+                    <div class="">
+                        <div for="card_type" class="">Card Type</div>
+                        <select id="card_type" name="card_type" class="form-input" required>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="Credit Card">Credit Card</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <div for="card_number" class="">Card Number</div>
+                        </div>
+                        <input type="number" id="card_number"  name="card_number" class="form-input" placeholder="Enter Card Number" required>
+                    </div>
+                     <div class="">
+                        <div class="">
+                            <div for="name_on_card" class="">Name On Card</div>
+                        </div>
+                        <input type="text" id="name_on_card"  name="name_on_card" class="form-input" placeholder="Enter Name On Card" required>
+                     </div>
+                     <div class="">
+                        <div class="">
+                            <div for="cvv" class="">CVV</div>
+                        </div>
+                        <input type="number" id="cvv"  name="cvv" class="form-input" placeholder="Enter CVV Number" required>
+                     </div>
+                    <div class="">
+                        <div class="">
+                            <div for="expiry_date" class="">Expiry Date</div>
+                        </div>
+                        <input type="text" id="expiry_date"  name="expiry_date" class="form-input" placeholder=" MM/YY" required>
+                    </div>
+                    <div><input type="submit" class="btn" value="PAY NOW" required></div>
+                </form>
+            </div>
+        </div>
+    </div>

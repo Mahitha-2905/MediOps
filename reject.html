@@ -1,0 +1,16 @@
+{% include 'dhead.html' %}
+<div class=" p-100 ">
+    <form action="send_reason">
+        <input type="hidden" name="appointment_id" value="{{appointment_id}}">
+        <div class="card  p-20 ml-150" >
+            <div class="h5 mt-10">
+                <label  for="reason">Reason :</label><br>
+                <textarea class="w-100 p-20 card description" id="reason" name="reason" required></textarea><br>
+            </div>
+            <div class="row mt-10">
+                <div class="w-90"></div>
+                <div class="w-10"><input type="submit" class="btn h6" value="Send"></div>
+            </div>
+        </div>
+    </form>
+</div>

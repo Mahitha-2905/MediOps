@@ -1,0 +1,73 @@
+{% include 'links.html' %}
+<div class="">
+    <div class="row">
+        <div class="col-md-2 w-15 sidebar">
+            <h2>Home Panel</h2>
+            <a class="mt-20 h5" href="/">Home</a>
+            <a class="mt-20 h5" href="/admin_login">Admin</a>
+            <a class="mt-20 h5" href="/doctor_login">Doctor</a>
+            <a class="mt-20 h5" href="/patient_login">Patient</a>
+        </div>
+        <div class="w-85">
+            <div class="header text-center">
+                <h1>Welcome to Health Care Management System</h1>
+            </div>
+            <div class="card ml-500 mt-50 w-30 p-10">
+                <title>Patient Registration</title>
+                <div>
+                    <div class="login-container">
+                        <h2 class="text-center">Patient Login</h2>
+                        <form action="patient_registration_action" method="post">
+                              <div class="mt-10">
+                                        <div  class="">First Name</div>
+                                        <input type="text"  name="first_name" class="form-input p-5px" placeholder="Enter First Name" required>
+                                  </div>
+                                <div class="mt-10">
+                                        <div  class="">Last Name</div>
+                                        <input type="text"   name="last_name" class="form-input p-5px" placeholder="Enter Last Name" required>
+                                  </div>
+                                <div class="mt-10">
+                                    <label for="name">User Name:</label>
+                                    <input type="text" class="form-input" id="name" name="name" placeholder="Enter User name" required>
+                                </div>
+                             <div class="email mt-10">
+                                    <div for="email" class="label-1">Email</div>
+                                    <input type="email" id="email"  name="email" class="form-input p-5px" placeholder="Enter Email" required>
+                             </div>
+                             <div class="password mt-10">
+                                    <div for="password" class="label-1">Password</div>
+                                    <input type="password" id="password"  name="password" class="form-input p-5px" placeholder="Enter Password" required>
+                             </div>
+                                <div class="mt-10">
+                                        <div  class="label-1">Confirm Password</div>
+                                        <input type="password"  name="confirm_password" class="form-input p-5px" placeholder="Enter Confirm Password" required>
+                                 </div>
+                             <div class="phone mt-10">
+                                    <div for="phone" class="label-1">Phone</div>
+                                    <input type="number" id="phone"  name="phone" class="form-input p-5px" placeholder="Enter Phone Number" required>
+                             </div>
+                             <div class="about mt-10">
+                                    <div for="about" class="zipcode">Zip code</div>
+                                    <input type="text" id="about"  name="zipcode" class="form-input p-5px" placeholder="Enter Zip code" required>
+                             </div>
+                            <div class="dob mt-10">
+                                    <div for="dob" class="label-1">DOB</div>
+                                    <input type="date" id="dob"  name="dob" class="form-input p-5px" placeholder="Enter DOB" required>
+                             </div>
+                               <div class="ssn mt-10">
+                                        <div class="label-1">SSN</div>
+                                        <input type="text"  name="ssn" class="form-input p-5px" placeholder="Enter SSN" required>
+                                </div>
+                             <div class="city mt-10">
+                                    <div class="label-1">City</div>
+                                    <input type="text"  name="city" class="form-input p-5px" placeholder="Enter City" required>
+                             </div>
+                              <div><input type="submit" class="btn  h6" value="REGISTER" required></div>
+                            <div class="mt-10"><label>Don't Have an account ? Click on <a class="under-line" href="/patient_login">LOGIN</a></label></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

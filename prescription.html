@@ -1,0 +1,13 @@
+{% include 'dhead.html' %}
+<div class="card w-40 mt-100 ml-400 p-20">
+    <h2>Prescription Form</h2>
+    <form action="submit_prescription">
+        <div class="form-group">
+            <input type="hidden" name="appointment_id" value="{{appointment_id}}">
+            <label for="prescription">Doctor's Prescription :</label>
+            <textarea id="prescription" name="prescription" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Submit Prescription</button>
+    </form>
+</div>
+

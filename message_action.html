@@ -1,0 +1,11 @@
+
+{% if session['role']== "patient" %}
+    {% include 'phead.html' %}
+{% endif %}
+{% if session['role']== "doctor"%}
+    {% include 'dhead.html' %}
+{% endif %}
+<div class="location-bg-color">
+    <div >.</div>
+    <div class="mt-100 sub-title text-center  h2">{{message}}</div>
+</div>
