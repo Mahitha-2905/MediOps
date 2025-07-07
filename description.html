@@ -1,0 +1,43 @@
+{% include 'phead.html' %}
+
+
+    <title>Prescription Form</title>
+    <style>
+
+
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+    </style>
+
+    <div class="card w-40 p-20 ml-400 mt-100">
+        <div class="header">
+            <h1>Patient Description</h1>
+        </div>
+        <form action="request_doctor">
+            <input type="hidden" name="doctor_id" value="{{doctor_id}}">
+            <input type="hidden" name="slot_id" value="{{slot_id}}">
+            <input type="hidden" name="appointment_date" value="{{appointment_date}}" id="appointment_date" required>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <button type="submit" class="btn">Request</button>
+        </form>
+    </div>
+
+
