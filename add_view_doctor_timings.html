@@ -1,0 +1,75 @@
+{% if session['role']== "doctor"%}
+    {% include 'dhead.html' %}
+{% endif %}
+<title>Doctor Work Timings</title>
+<h1>Manage Doctor Timings</h1>
+    <div class="row space-around">
+        <div class="w-40 mt-50">
+            <div class="card p-20" id="add_doctor_timings">
+            <h2>Add Doctor Timings</h2><br>
+            <form action="add_view_doctor_timings_action" method="post">
+                <input type="hidden" name="doctor_id" value="{{doctors['_id']}}">
+                <label for="day">Select Weekdays:</label>
+                <select id="day" name="day" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select><br><br>
+                <div>
+                    <label for="from_time">From Time:</label>
+                    <input type="time" id="from_time" name="from_time" class="form-input" value="{{doctors['from_time']}}" required>
+                </div><br>
+                <div>
+                    <label for="to_time">To Time:</label>
+                    <input type="time" id="to_time" name="to_time" class="form-input" value="{{doctors['to_time']}}" required>
+                </div>
+                            <button type="submit" class="btn">Update</button>
+            </form>
+                    </div>
+
+        </div>
+        <div class="w-50">
+            <div>
+            <div class="card mt-20 p-20">
+                        <div class="text-center"><h2>Doctors List</h2></div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Day</th>
+                                    <th class="text-center">From Time</th>
+                                    <th class="text-center">To Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for doctor in doctors %}
+                                    {% for timing in doctor['timings'] %}
+                                    {% set from_time = formate_time(timing['from_time'])%}
+                                {% set to_time = formate_time(timing['to_time'])%}
+                                    <tr>
+                                        <td class="text-center">{{timing['day']}}</td>
+                                        <td class="text-center">{{from_time}}</td>
+                                        <td class="text-center">{{to_time}}</td>
+                                    </tr>
+                                {% endfor %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
